@@ -1,5 +1,19 @@
-# Input data
-D <- read.csv("C:/Users/vivma/Desktop/Pilot Study - V2_November 16, 2017_20.28.csv", stringsAsFactors=FALSE)
+script.dir <- dirname(sys.frame(1)$ofile)
+
+# Get approval survey codes from m turk data
+session.02.mturk.file <- file.path(script.dir, "pilot-session-02-mturk.csv")
+M <- read.csv(session.02.mturk.file, stringsAsFactors = FALSE)
+cat(paste("Total entries:", length(M$AssignmentStatus), "\n"))
+cat(paste("Rejected entries:", sum(M$AssignmentStatus == "Rejected"), "\n"))
+cat(paste("Approved entries:", sum(M$AssignmentStatus == "Approved"), "\n"))
+approvedCodes <- M[M$AssignmentStatus == "Approved", "Answer.surveycode"]
+approvedCodes <- c(approvedCodes, "CompletionCode")
+
+# Get survey result data from qualtrics (and filter to the ones approved in m turk)
+session.02.qualtrics.file <- file.path(script.dir, "pilot-session-02-qualtrics.csv")
+D <- read.csv(session.02.qualtrics.file, stringsAsFactors = FALSE)
+D <- D[D$CompletionCode %in% approvedCodes,]
+
 agreementQuestions = list(D$Q2, D$Q11, D$Q14, D$Q17, D$Q20, D$Q23, D$Q29, D$Q32, D$Q35, D$Q38, D$Q41, D$Q44, D$Q47, D$Q53, D$Q56, D$Q59)
 categoryQuestions = list(D$Q1, D$Q12, D$Q15, D$Q18, D$Q21, D$Q24, D$Q30, D$Q33, D$Q36, D$Q39, D$Q42, D$Q45, D$Q48, D$Q54, D$Q57, D$Q60)
 
@@ -14,12 +28,13 @@ likert.to.numerical <- function (x) {
 verify.question <- function(agreementData, categoryData) {
   
   question <- substr(agreementData[1],nchar("I believe the following statement:\n") + 1, 10000)
+  question <- trimws(gsub("[\r\n]", "", question))
   
   cat(paste("Q.", question, "\n"))
   
   # The first to rows are header information, not real sample points from participants
-  agreementData <- tail(agreementData, -2)
-  categoryData <- tail(categoryData, -2)
+  agreementData <- tail(agreementData, -1)
+  categoryData <- tail(categoryData, -1)
   
   agreementData <- likert.to.numerical(agreementData)
   
