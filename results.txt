@@ -1,0 +1,78 @@
+BATCH 1
+
+Total entries: 43 
+Rejected entries: 3 
+Approved entries: 40 
+Q. Humans only use 10% of their brains. 
+Q. You weigh more on the way down in an elevator. 
+Q. A blue whale's heart is the size of a truck. 
+Q. Contact with rust can cause a tetanus infection. 
+Q. 25% of all bones in the human body are in the feet. 
+Q. Sharks can contract cancer. 
+Q. The human body contains enough carbon to fill 9,000 pencils. 
+Q. On Saturn, it can rain diamonds. 
+Q. In 1968, the TV series Star Trek featured the first interracial kiss aired on American TV. 
+Q. In the film Alien, Sigurney Weaver's spaceship is called the "Nostremo." 
+Q. Albert is the name of Batman's butler. 
+Q. Angelina Jolie and Brad Pitt have been married for 14 years. 
+Q. The Manga art style originated in Japan. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. Leonardo DiCaprio's first movie is 'What’s Eating Gilbert Grape?'. 
+Q. In the film Star Wars Episode V: The Empire Strikes Back, Darth Vader says the line: "No. I am your father." 
+Q. Harry Potter and the Deathly Hallows was released in 2007 
+
+
+
+BATCH 2
+
+Total entries: 41 
+Rejected entries: 1 
+Approved entries: 40 
+Q. The Great Wall of China is the only human-made object visible from the Moon. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. Goldfish have a memory span of only a few seconds. 
+Q. Chameleons change color to match their surroundings. 
+Q. Bananas grow on trees. 
+Q. A human has more than five senses. 
+Q. Zebras are black with white stripes. 
+Q. The average human has fewer than two legs. 
+! REJECT the above question because over 0.75 of participants responded with a value of 1 
+Q. Fortune cookies originated in China. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. Canada consumes more baked beans than the rest of the world put together. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. In the novel Oliver Twist, the parish boy asks: "Please, Sir, can I have some more?" 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. The most common street name in America is "Second Street." 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. Charlie Chaplin outlived Elvis Presley. 
+Q. France gave the United States the Statue of Liberty. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. Only those who are deceased may appear on a United States postal stamp. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. In the film Frozen, the fictional kingdom is called Arendelle. 
+Q. In the film Anchorman: The Legend of Ron Burgundy, Ron Burgundy says the line: "Boy, that escalated quickly." 
+
+
+BATCH 3
+
+Total entries: 43 
+Rejected entries: 3 
+Approved entries: 40 
+Q. In the film Casablanca, Ingrid Bergman's character, Ilsa Lund, says the line: "Play it again, Sam." 
+Q. In the TV series Star Trek, Captain Kirk says: "Live long and prosper." 
+Q. Khloe Kardashian is the oldest Kardashian-Jenner sibling. 
+Q. Mark Ruffalo and Eric Bana have both played the Incredible Hulk in the Marvel Cinematic Universe. 
+Q. Meteorites can be cold when they impact the Earth's surface. 
+Q. Peter Parker's middle name is Benjamin. 
+Q. Popstar Rihanna is from the Bahamas. 
+Q. Schizophrenia is another name for multiple personality disorder. 
+Q. Taylor Swift won the 2016 Grammy for Album of the Year with the album "1989". 
+Q. The average human body contains 12 pints of blood. 
+Q. The first CD that was pressed in the U.S. was Bruce Springsteen’s Born in the USA. 
+Q. There are more lifeforms living on your skin than there are people on the planet Earth. 
+Q. There is enough DNA in an average person’s body to stretch from the sun to Pluto and back — 17 times 
+Q. When cut in half, an earthworm can continue to live as two worms. 
+Q. When Freddy Mercury announced that he had the AIDS virus, he passed away the next day. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. When humans feels scared, their sight gets better. 
