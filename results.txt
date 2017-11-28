@@ -1,4 +1,4 @@
-BATCH 1
+﻿BATCH 1
 
 Total entries: 43 
 Rejected entries: 3 
@@ -20,7 +20,6 @@ Q. The Manga art style originated in Japan.
 Q. Leonardo DiCaprio's first movie is 'What’s Eating Gilbert Grape?'. 
 Q. In the film Star Wars Episode V: The Empire Strikes Back, Darth Vader says the line: "No. I am your father." 
 Q. Harry Potter and the Deathly Hallows was released in 2007 
-
 
 
 BATCH 2
@@ -76,3 +75,28 @@ Q. When cut in half, an earthworm can continue to live as two worms.
 Q. When Freddy Mercury announced that he had the AIDS virus, he passed away the next day. 
 ! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
 Q. When humans feels scared, their sight gets better. 
+
+
+BATCH 4
+
+Total entries: 43 
+Rejected entries: 3 
+Approved entries: 40 
+Q. A single cloud cannot weigh more than 1 million pounds. 
+Q. An adult human skeleton has 216 bones. 
+Q. Alexander McQueen, a leading fashion designer, was found dead in his Paris studio in February 2010. 
+Q. Mark Ruffalo and Eric Bana have both played the Incredible Hulk in the Marvel Cinematic Universe. 
+Q. Black Beatles is the song that was used for the mannequin challenge 
+Q. Bulls are not enraged by the color red. 
+! REJECT the above question because over 0.8 of participants did not agree on a category (science vs. pop culture) 
+Q. Hawkeye's real name is Bart Clinton. 
+Q. Humans grow 121 feet of hair every day. 
+Q. Jayne Mansfield, the famous Hitchcock leading lady, was the mother of Jamie Lee Curtis. 
+Q. Puma has had collaborations with the likes of Rihanna, Kylie Jenner, and The Weekend. 
+Q. Punk Rock Music emerged in the 1970s,  featuring themes of heavier and louder sounds with anti-establishment lyrics. 
+Q. Sugar does not cause hyperactivity in children. 
+Q. The "Alpha" in a wolf pack is the pack's dominant adult wolf. 
+! REJECT the above question because over 0.9 of participants agreed 
+Q. The eye muscles move 100,000 times a day. 
+Q. Titanic and La La Land both have received 14 Oscar nominations. 
+Q. When Marvel's Steve Rogers was 21 years old, he received the Super-Serum, turning him into Captain America. 

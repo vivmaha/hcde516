@@ -1,7 +1,7 @@
 script.dir <- dirname(sys.frame(1)$ofile)
 
 # Get approval survey codes from m turk data
-session.02.mturk.file <- file.path(script.dir, "pilot-session-04-US-only-mturk.csv")
+session.02.mturk.file <- file.path(script.dir, "pilot-session-05-US-only-mturk.csv")
 M <- read.csv(session.02.mturk.file, stringsAsFactors = FALSE)
 cat(paste("Total entries:", length(M$AssignmentStatus), "\n"))
 cat(paste("Rejected entries:", sum(M$AssignmentStatus == "Rejected"), "\n"))
@@ -10,7 +10,7 @@ approvedCodes <- M[M$AssignmentStatus == "Approved", "Answer.surveycode"]
 approvedCodes <- c(approvedCodes, "CompletionCode")
 
 # Get survey result data from qualtrics (and filter to the ones approved in m turk)
-session.02.qualtrics.file <- file.path(script.dir, "pilot-session-04-US-only-qualtrics.csv")
+session.02.qualtrics.file <- file.path(script.dir, "pilot-session-05-US-only-qualtrics.csv")
 D <- read.csv(session.02.qualtrics.file, stringsAsFactors = FALSE)
 D <- D[D$CompletionCode %in% approvedCodes,]
 
