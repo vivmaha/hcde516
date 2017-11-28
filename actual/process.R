@@ -4,8 +4,11 @@ script.dir <- dirname(sys.frame(1)$ofile)
 data.mturk.file <- file.path(script.dir, "data-mturk.csv")
 M <- read.csv(data.mturk.file, stringsAsFactors = FALSE)
 cat(paste("Total entries:", length(M$AssignmentStatus), "\n"))
-cat(paste("Rejected entries:", sum(M$AssignmentStatus == "Rejected") + 1, "\n")) # + 1 because I realized it should be rejected AFTER finalizing the mturk batch
-cat(paste("Approved entries:", sum(M$AssignmentStatus == "Approved") - 1, "\n")) # - 1 because I realized it should be rejected AFTER finalizing the mturk batch
+cat(paste("Rejected entries:", sum(M$AssignmentStatus == "Rejected") + 1, "\n"))
+cat(paste("Approved entries:", sum(M$AssignmentStatus == "Approved") - 1, "\n"))
+# NOTE: The +1 and -1 is because I realized I should reject an entry (failed attention test) AFTER finalizing the mTurk batch, 
+# so I had to throw away the entry and was unable to get another HIT from mTurk. I removed the entry from qualtrics directly so
+# it would not show up there. Retrospectively, I should have left the entry in qualtrics, and removed it in the code here.
 approvedCodes <- M[M$AssignmentStatus == "Approved", "Answer.surveycode"]
 approvedCodes <- c(approvedCodes, "CompletionCode")
 
@@ -20,11 +23,11 @@ D.serif <- read.data.qualtrics("data-serif-qualtrics.csv")
 D.sans <- read.data.qualtrics("data-sans-qualtrics.csv")
 D <- rbind(D.serif, D.sans)
 
+questions.science = list(D$S01, D$S02, D$S03, D$S04, D$S05, D$S06, D$S07, D$S08, D$S09, D$S10, D$S11, D$S12, D$S13, D$S14, D$S15, D$S16, D$S17, D$S18, D$S19, D$S20)
+questions.pop = list(D$P01, D$Q82, D$Q83, D$Q84, D$Q85, D$Q87, D$Q88, D$Q89, D$Q90, D$Q91, D$Q92, D$Q93, D$Q94, D$Q95, D$Q96, D$Q97, D$Q98, D$Q99, D$Q100)
+# NOTE: One of the pop culture questions was blank by mistake (D$Q86) so data for this question was discarded.
+
 stop()
-
-
-questions.science = list(D$S01, D$S02, D$S03, D$S04, D$S05, D$S06, D$S07, D$S08, D$S09, D$S10, D$S11, D$S12, D$S13, D$S14, D$S15, D$S16, D$S17, D$S18, D$S19, D$S20) 
-categoryQuestions = list(D$Q1, D$Q12, D$Q15, D$Q18, D$Q21, D$Q24, D$Q30, D$Q33, D$Q36, D$Q39, D$Q42, D$Q45, D$Q48, D$Q54, D$Q57, D$Q60)
 
 # Convert the names on the likert scale (eg. "Strongly Disagree") to numbers (eg. 1)
 likert.to.numerical <- function (x) {
