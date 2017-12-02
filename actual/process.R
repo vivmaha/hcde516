@@ -59,8 +59,15 @@ for (row.index in 1 : dim(D)[1]) {
   D$Agreement[row.index] = mean(responses.numerical)
 }
 
+
+#################################################################
+# Convert YearOfBirth to Age
+#
+
+D$Age <- 2017 - as.numeric(D$YearOfBirth)
+
 #################################################################
 # Get rid of all the columns we don't care about
 #
 
-D <- D[,c("YearOfBirth", "Sex", "Topic", "Font", "Agreement")]
+D <- D[,c("Age", "Sex", "Topic", "Font", "Agreement")]
