@@ -62,11 +62,16 @@ plot.comparison <- function(data, name, x) {
 plot.comparison(D.pop, "Pop culture - Font", D.pop$Font)
 plot.comparison(D.science, "Science - Font", D.science$Font)
 
-plot.comparison(D.pop, "Pop culture - Sex", D.pop$Sex)
-plot.comparison(D.science, "Science - Sex", D.science$Sex)
+plot.comparison(D.pop, "Moderators - Pop culture - Sex", D.pop$Sex)
+plot.comparison(D.science, "Moderators - Science - Sex", D.science$Sex)
 
+plot.cor <- function(data, name) {
+  start.image(paste("Analysis - Moderators - ", name, " - Age.png"))
+  plot <- ggplot(data, aes(Age, Agreement))
+  plot <- plot + geom_point();
+  print(plot)
+  end.image()
+}
 
-
-
-
-
+plot.cor(D.Pop, "Pop culture")
+plot.cor(D.Science, " Science")

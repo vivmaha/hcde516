@@ -29,6 +29,64 @@ mean of x mean of y
  3.255319  3.320370 
 
 ===================================================== 
+Comparison of means - Pop - Sex 
+===================================================== 
+
+	Welch Two Sample t-test
+
+data:  x and y
+t = 2.2706, df = 80.518, p-value = 0.02584
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.01972646 0.29933634
+sample estimates:
+mean of x mean of y 
+ 3.406495  3.246964 
+
+===================================================== 
+Comparison of means - Science - Sex 
+===================================================== 
+
+	Welch Two Sample t-test
+
+data:  x and y
+t = -1.4233, df = 95.733, p-value = 0.1579
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.21771683  0.03588074
+sample estimates:
+mean of x mean of y 
+ 3.241489  3.332407 
+
+===================================================== 
+Pearson correlation test -  Pop 
+===================================================== 
+      x     y
+x  1.00 -0.18
+y -0.18  1.00
+
+n= 99 
+
+
+P
+  x     y    
+x       0.074
+y 0.074      
+===================================================== 
+Pearson correlation test -  Science 
+===================================================== 
+      x     y
+x  1.00 -0.17
+y -0.17  1.00
+
+n= 101 
+
+
+P
+  x      y     
+x        0.0847
+y 0.0847       
+===================================================== 
 Statistical Power - Pop 
 ===================================================== 
 

@@ -1,3 +1,5 @@
+library(pwr)
+library(Hmisc)
 
 print.line <- function(s) {
   cat(paste(s, "\n"))
@@ -32,7 +34,13 @@ print.t.test(D.Science.Serif$Agreement, D.Science.Sans$Agreement, "Science")
 print.t.test(D.Pop.Male$Agreement, D.Pop.Female$Agreement, "Pop - Sex")
 print.t.test(D.Science.Male$Agreement, D.Science.Female$Agreement, "Science - Sex")
 
-library(pwr)
+print.cor <- function(x, y, s) {
+  print.header(paste("Pearson correlation test - ", s))
+  print(rcorr(x, y))
+}
+
+print.cor(D.Pop$Age, D.Pop$Agreement, "Pop")
+print.cor(D.Science$Age, D.Science$Agreement, "Science")
 
 effectSize <- function(x, y) {
   mean.x <- mean(x)
