@@ -1,0 +1,55 @@
+===================================================== 
+Comparison of means - Pop 
+===================================================== 
+
+	Welch Two Sample t-test
+
+data:  x and y
+t = 0.67725, df = 93.007, p-value = 0.4999
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.09218666  0.18761093
+sample estimates:
+mean of x mean of y 
+ 3.346316  3.298604 
+
+===================================================== 
+Comparison of means - Science 
+===================================================== 
+
+	Welch Two Sample t-test
+
+data:  x and y
+t = -1.0167, df = 97.155, p-value = 0.3118
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.19204171  0.06193927
+sample estimates:
+mean of x mean of y 
+ 3.255319  3.320370 
+
+===================================================== 
+Statistical Power - Pop 
+===================================================== 
+
+     t test power calculation 
+
+             n1 = 50
+             n2 = 49
+              d = 0.1227574
+      sig.level = 0.05
+          power = 0.0928237
+    alternative = two.sided
+
+===================================================== 
+Statistical Power - Science 
+===================================================== 
+
+     t test power calculation 
+
+             n1 = 47
+             n2 = 54
+              d = 0.2030531
+      sig.level = 0.05
+          power = 0.1720621
+    alternative = two.sided
