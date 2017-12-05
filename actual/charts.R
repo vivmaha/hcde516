@@ -51,16 +51,22 @@ plot.best.normal.fit <- function(data, name) {
 plot.best.normal.fit(D.pop, "Pop culture")
 plot.best.normal.fit(D.science, "Science")
 
-plot.comparison <- function(data, name) {
+plot.comparison <- function(data, name, x) {
   start.image(paste("Analysis -", name, "- Comparison of means.png"))
-  plot <- ggplot(data, aes(Font, Agreement))
+  plot <- ggplot(data, aes(x, data$Agreement))
   plot <- plot + geom_boxplot()
   print(plot)
   end.image()  
 }
 
-plot.comparison(D.pop, "Pop culture")
-plot.comparison(D.science, "Science")
+plot.comparison(D.pop, "Pop culture - Font", D.pop$Font)
+plot.comparison(D.science, "Science - Font", D.science$Font)
+
+plot.comparison(D.pop, "Pop culture - Sex", D.pop$Sex)
+plot.comparison(D.science, "Science - Sex", D.science$Sex)
+
+
+
 
 
 

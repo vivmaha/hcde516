@@ -12,12 +12,14 @@ print.header <- function(s) {
 D.Pop = D[D$Topic == "PopCulture",]
 D.Pop.Serif <- D.Pop[D.Pop$Font == "serif", ]
 D.Pop.Sans <- D.Pop[D.Pop$Font == "sans-serif", ]
-
-
+D.Pop.Male <- D.Pop[D.Pop$Sex == "Male", ]
+D.Pop.Female <- D.Pop[D.Pop$Sex == "Female", ]
 
 D.Science = D[D$Topic == "Science",]
 D.Science.Serif <- D.Science[D.Science$Font == "serif", ]
 D.Science.Sans <- D.Science[D.Science$Font == "sans-serif", ]
+D.Science.Male <- D.Science[D.Science$Sex == "Male", ]
+D.Science.Female <- D.Science[D.Science$Sex == "Female", ]
 
 print.t.test <- function(x, y, s) {
   print.header(paste("Comparison of means -", s))
@@ -26,6 +28,9 @@ print.t.test <- function(x, y, s) {
 
 print.t.test(D.Pop.Serif$Agreement, D.Pop.Sans$Agreement, "Pop")
 print.t.test(D.Science.Serif$Agreement, D.Science.Sans$Agreement, "Science")
+
+print.t.test(D.Pop.Male$Agreement, D.Pop.Female$Agreement, "Pop - Sex")
+print.t.test(D.Science.Male$Agreement, D.Science.Female$Agreement, "Science - Sex")
 
 library(pwr)
 
