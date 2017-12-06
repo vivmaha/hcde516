@@ -47,15 +47,21 @@ likert.to.numerical <- function (x) {
   values[x]
 }
 
+questions.science.columns <- c("S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17", "S18", "S19", "S20")
+questions.pop.columns <- c("P01", "Q82", "Q83", "Q84", "Q85", "Q87", "Q88", "Q89", "Q90", "Q91", "Q92", "Q93", "Q94", "Q95", "Q96", "Q97", "Q98", "Q99", "Q100")
+
+get.questions.columns <- function(row) {
+  switch(row$Topic,
+         Science = row[,questions.science.columns],
+         # NOTE: One of the pop culture questions was blank by mistake (D$Q86) so data for this question was discarded.
+         PopCulture = row[,questions.pop.columns] 
+  )
+}
+
 for (row.index in 1 : dim(D)[1]) {
   row <- D[row.index,]
-  responses.likert <- switch(row$Topic,
-         Science = list(row$S01, row$S02, row$S03, row$S04, row$S05, row$S06, row$S07, row$S08, row$S09, row$S10, row$S11, row$S12, row$S13, row$S14, row$S15, row$S16, row$S17, row$S18, row$S19, row$S20),
-         # NOTE: One of the pop culture questions was blank by mistake (D$Q86) so data for this question was discarded.
-         PopCulture = list(row$P01, row$Q82, row$Q83, row$Q84, row$Q85, row$Q87, row$Q88, row$Q89, row$Q90, row$Q91, row$Q92, row$Q93, row$Q94, row$Q95, row$Q96, row$Q97, row$Q98, row$Q99, row$Q100)
-  )
+  responses.likert <- get.questions.columns(row)
   responses.numerical = sapply(responses.likert, likert.to.numerical)
-  
   D$Agreement[row.index] = mean(responses.numerical)
 }
 
@@ -69,5 +75,5 @@ D$Age <- 2017 - as.numeric(D$YearOfBirth)
 #################################################################
 # Get rid of all the columns we don't care about
 #
-
+rawD <- D
 D <- D[,c("Age", "Sex", "Topic", "Font", "Agreement")]
