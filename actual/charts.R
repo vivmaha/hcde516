@@ -8,18 +8,29 @@ library(ggplot2)
 
 
 D$Credibility <- D$Agreement
+D$Gender <- D$Sex
 
 D.pop <- D[D$Topic == "PopCulture",]
 D.science <- D[D$Topic == "Science",]
 D$Group <- paste(D$Topic, " & ", D$Font)
 
 start.image <- function(name) {
-  png(file.path(script.dir, "results", "charts", name))
+  png(
+    filename = file.path(script.dir, "results", "charts", name),
+    width = 300,
+    height = 300,
+    units = "px"
+  )
 }
 end.image <- function() {
   dev.off()
 }
 
+#theme_update()
+theme_set(
+  theme_classic() +
+    theme(text = element_text(size=14))
+)
 
 start.image("Participants - Sample size.png")
 plot <- ggplot(D, aes(Group))
@@ -27,18 +38,29 @@ plot <- plot + geom_bar()
 print(plot)
 end.image()
 
-start.image("Participants - Age.png")
-plot <- ggplot(D, aes(Group, Age))
-plot <- plot + geom_boxplot()
-print(plot)
-end.image()
+plot.participants.age <- function(data, name) {
+  start.image(paste("Participants -", name, "- Age.png"))
+  plot <- ggplot(data, aes(Font, Age))
+  plot <- plot + geom_boxplot()
+  plot <- plot + labs(title=name)
+  print(plot)
+  end.image()
+}
 
-start.image("Participants - Sex.png")
-plot <- ggplot(D, aes(Group))
-plot <- plot + geom_bar(aes(fill = Sex), position = "dodge")
-plot <- plot + theme(legend.position = "bottom")
-print(plot)
-end.image()
+plot.participants.age(D.pop, "Popular Culture")
+plot.participants.age(D.science, "Science")
+
+plot.participants.gender <- function(data, name) {
+  start.image(paste("Participants -", name, "- Gender.png"))
+  plot <- ggplot(data, aes(Font))
+  plot <- plot + geom_bar(aes(fill = Gender), position = "dodge")
+  plot <- plot + labs(title=name, y = "Count")
+  print(plot)
+  end.image()
+}
+
+plot.participants.gender(D.pop, "Popular Culture")
+plot.participants.gender(D.science, "Science")
 
 plot.best.normal.fit <- function(data, name) {
   start.image(paste("Analysis -", name, "- Best normal fit.png"))
@@ -51,7 +73,8 @@ plot.best.normal.fit <- function(data, name) {
                                                        mean = mean(data$Credibility, na.rm = TRUE),
                                                        sd = sd(data$Credibility, na.rm = TRUE)
                                                        ) * n * binwidth)
-  plot <- plot + xlim(1,5)
+  plot <- plot + xlim(2,5)
+  plot <- plot + labs(title=name, y = "Count")
   print(plot)
   end.image()  
 }
@@ -60,19 +83,21 @@ plot.best.normal.fit(D.pop, "Pop culture")
 plot.best.normal.fit(D.science, "Science")
 
 plot.comparison <- function(data, name, x, label.x) {
-  start.image(paste("Analysis -", name, "- Comparison of means.png"))
+  start.image(paste("Analysis -", name, "-", label.x, "- Comparison of means.png"))
   plot <- ggplot(data, aes(x, data$Credibility))
   plot <- plot + geom_boxplot()
-  plot <- plot + labs(x = label.x, y = "Credibility")
+  plot <- plot + labs(x = label.x, y = "Credibility", title = name)
+  plot <- plot + theme(text = element_text(size=16))
+  plot <- plot + ylim(2,5)
   print(plot)
   end.image()  
 }
 
-plot.comparison(D.pop, "Pop culture - Font", D.pop$Font, "Font")
-plot.comparison(D.science, "Science - Font", D.science$Font, "Font")
+plot.comparison(D.pop, "Pop culture", D.pop$Font, "Font")
+plot.comparison(D.science, "Science", D.science$Font, "Font")
 
-plot.comparison(D.pop, "Moderators - Pop culture - Sex", D.pop$Sex, "Sex")
-plot.comparison(D.science, "Moderators - Science - Sex", D.science$Sex, "Sex")
+plot.comparison(D.pop, "Pop culture", D.pop$Gender, "Gender")
+plot.comparison(D.science, "Science", D.science$Gender, "Gender")
 
 plot.cor <- function(data, name) {
   start.image(paste("Analysis - Moderators - ", name, " - Age.png"))
