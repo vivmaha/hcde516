@@ -17,8 +17,8 @@ D$Group <- paste(D$Topic, " & ", D$Font)
 start.image <- function(name) {
   png(
     filename = file.path(script.dir, "results", "charts", name),
-    width = 300,
-    height = 300,
+    width = 288,
+    height = 288,
     units = "px"
   )
 }
